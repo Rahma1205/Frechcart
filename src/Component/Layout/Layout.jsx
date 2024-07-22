@@ -15,7 +15,7 @@ export default function Layout({userData,setUserData}) {
 <>
 <div className='pt-5'> <Navbar userData={userData} Logout={Logout}/>
 <Outlet></Outlet>
-
+<Footer/>
    </div>
 
     </>

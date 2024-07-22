@@ -32,7 +32,7 @@ export default function Category() {
           <div key={cat._id} className={`Proudact-hover col-md-2 ${styles.cat}`}>
             <div className="product px-2 py-4 cursor-pointer">
               <Link to={'/Product'}>
-                <img className="w-100" src={cat.image} alt={cat.slug} />
+                <img className="w-100 " src={cat.image} alt={cat.slug} />
                 <span className="text-success fw-bold fs-6">{cat.name}</span> {/* Adjust according to actual data structure */}
                 
                 

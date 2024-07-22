@@ -6,8 +6,8 @@ import {CartContext} from '../../Context/CartContext'
 import { Helmet } from 'react-helmet';
 
 export default function Cart() {
-  let [cartDetails, setCartDetails] = useState(null);
-  let { getLoggedUserCart, removeItemFromCart, updateProductCount } = useContext(CartContext);
+  let [cartDetails, setCartDetails, ] = useState(null);
+  let { getLoggedUserCart, removeItemFromCart, updateProductCount,setnumOfCartItems } = useContext(CartContext);
 
   async function getCart() {
     let response = await getLoggedUserCart();
@@ -22,6 +22,7 @@ export default function Cart() {
     let response = await removeItemFromCart(productId);
     if (response.data.status === 'success') {
       setCartDetails(response);
+      setnumOfCartItems(response.data.numOfCartItems);
       toast.success('Product Successfully Removed');
     }
     else{
@@ -35,7 +36,7 @@ export default function Cart() {
       setCartDetails(response.data.data);
       toast.success('Product count updated');
     }
-    
+     
   }
 
   useEffect(() => {

@@ -17,6 +17,7 @@ export default function MainSlider() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows:true
 
   };
 
@@ -25,22 +26,22 @@ export default function MainSlider() {
       
         <Slider {...settings}>
           <div>
-            <img src={MainSliderPhoto} alt="Main Slider 1" height={400}className="w-100" />
+            <img src={MainSliderPhoto} alt="Main Slider 1"className="w-100 height" />
           </div>
           <div>
-            <img src={MainSliderPhoto2} alt="Main Slider 2" height={400}className="w-100" />
+            <img src={MainSliderPhoto2} alt="Main Slider 2" className="w-100 height" />
           </div>
           <div>
-            <img src={MainSliderPhoto4} alt="Main Slider 3" height={400}className="w-100" />
+            <img src={MainSliderPhoto4} alt="Main Slider 3" className="w-100 height" />
           </div>
           <div>
-            <img src={MainSliderPhoto5} alt="Main Slider 4" height={400}className="w-100" />
+            <img src={MainSliderPhoto5} alt="Main Slider 4" className="w-100 height" />
           </div>
           <div>
-          <img src={MainSliderPhoto1} alt="Slider Photo 1" height={400}className="w-100" />
+          <img src={MainSliderPhoto1} alt="Slider Photo 1" className="w-100 height" />
           </div>
           <div>
-          <img src={MainSliderPhoto3} alt="Slider Photo 2" height={400}className="w-100" />
+          <img src={MainSliderPhoto3} alt="Slider Photo 2" className="w-100 height" />
           </div>
         </Slider>
       

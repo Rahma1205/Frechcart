@@ -29,11 +29,11 @@ export default function CategorySlider() {
 
   return (
     <><div className="pt-2 pb-5"> 
-    <h2 className='py-4 text-black-50 font-medium'>Shop Popular Categories</h2>
+    <h2 className='p-4 text-black-50 font-medium'>Shop Popular Categories</h2>
     <Slider {...settings}>
     {categories.map((cat) => (
       <div key={cat._id}  >
-        <img src={cat.image} className='w-100' height={200} alt={cat.name} />
+        <img src={cat.image} className='w-100 catHeight ' alt={cat.name} />
         <h2 className='h6 pt-2 text-black-50'>{cat.name}</h2>
       </div>
     ))}

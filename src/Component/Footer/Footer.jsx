@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './Footer.module.css';
+import { CartContext } from '../../Context/CartContext';
+import { Link, useLocation} from 'react-router-dom';
+import $ from 'jquery'
+
 export default function Footer() {
+  let { numOfCartItems } = useContext(CartContext);
+  const location = window.location.hash ; 
+
+ 
+
+
+
+
   return (
-   <>
-   <div className='bg-body text-center  position-fixed fixed-bottom py-1'>
-    <h3 >Developed by</h3>
-   </div></>
+    <>
+      {location!=='#/Cart'&& numOfCartItems!==0? (
+        <div className='footer bg-dark text-white text-center py-1 position-fixed bottom-0 start-0 w-100'>
+          <li className="nav-item position-relative me-2">
+            <Link className="nav-link bounce-animation" to="Cart">
+              <i className='fas fa-regular fa-shopping-cart fa-lg'></i>
+              <span className='badge bg-success text-white'>{numOfCartItems}</span>
+            </Link>
+          </li>
+        </div>
+      ) : null}
+    </>
   )
 }

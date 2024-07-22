@@ -3,20 +3,20 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import styles from './AllOrders.module.css';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { Helmet } from 'react-helmet';
 
 export default function AllOrders() {
   const [orders, setOrders] = useState(null);
   const encodedToken = localStorage.getItem('userToken');
-  const { id } =  jwtDecode(encodedToken) ;
+  const { id } = jwtDecode(encodedToken);
 
   async function getUserOrders() {
-   
-      const { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`)
-     setOrders(data)
-     console.log(data)
-   
+
+    const { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`)
+    setOrders(data)
+    console.log(data)
+
   }
 
   useEffect(() => {
@@ -30,13 +30,20 @@ export default function AllOrders() {
       </p>
     );
   }
+  if (orders.length===0) {
+    return (
+      <h6 className="py-5 d-flex justify-content-center">
+        No Orders Yet
+      </h6>
+    );
+  }
 
   return (
     <>
-    <Helmet>
-      <title>Orders</title>
-    </Helmet>
-   <h3>{orders.id}</h3>
+      <Helmet>
+        <title>Orders</title>
+      </Helmet>
+      <h3>{orders.id}</h3>
       <div className="row">
         {orders.map((order) => (
           <div key={order.id} className={`order border border-gray-300 rounded-md p-4 ${styles.order}`}>
