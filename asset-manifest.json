@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Frechcart/static/css/main.ccdb43c6.css",
-    "main.js": "/Frechcart/static/js/main.6b11e82f.js",
+    "main.js": "/Frechcart/static/js/main.616906a5.js",
     "static/js/453.3a63ce5d.chunk.js": "/Frechcart/static/js/453.3a63ce5d.chunk.js",
     "static/media/slider-2.jpeg": "/Frechcart/static/media/slider-2.92200ddb54f84e0e8c71.jpeg",
     "static/media/fa-solid-900.ttf": "/Frechcart/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
@@ -24,11 +24,11 @@
     "static/media/slick.woff": "/Frechcart/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Frechcart/index.html",
     "main.ccdb43c6.css.map": "/Frechcart/static/css/main.ccdb43c6.css.map",
-    "main.6b11e82f.js.map": "/Frechcart/static/js/main.6b11e82f.js.map",
+    "main.616906a5.js.map": "/Frechcart/static/js/main.616906a5.js.map",
     "453.3a63ce5d.chunk.js.map": "/Frechcart/static/js/453.3a63ce5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ccdb43c6.css",
-    "static/js/main.6b11e82f.js"
+    "static/js/main.616906a5.js"
   ]
 }
