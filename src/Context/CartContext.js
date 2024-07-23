@@ -12,7 +12,7 @@ export default function CartContextProvider(props) {
   let[numOfCartItems,setnumOfCartItems]=useState(0);
   async function getCart(){
     let response=await getLoggedUserCart();
-if(response.data.status==='success'){
+if(response.statusMsg==='success'){
   setnumOfCartItems(response.data.numOfCartItems);
   setCartId(response.data.data._id);
 }

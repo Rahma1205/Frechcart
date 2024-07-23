@@ -10,7 +10,7 @@ export default function Layout({userData,setUserData}) {
     localStorage.removeItem('userToken')
     setUserData(null)
     navigate('/')
-  }
+  };
   return (
 <>
 <div className='pt-5'> <Navbar userData={userData} Logout={Logout}/>
