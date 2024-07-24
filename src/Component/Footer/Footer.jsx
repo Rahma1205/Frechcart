@@ -8,14 +8,14 @@ export default function Footer() {
   let { numOfCartItems } = useContext(CartContext);
   const location = window.location.hash ; 
 
- 
+
 
 
 
 
   return (
     <>
-      {location!=='#/Cart'&& numOfCartItems!==0? (
+      {location!=='#/Cart' && location!=='#/'&&location!=='#/RestPassword'&&location!=='#/ForgetPassword'&&location!=='#/Register'&&location!=='#/NewPassword'&& numOfCartItems!==0? (
         <div className='footer bg-dark text-white text-center py-2 position-fixed bottom-0 start-0 w-100'>
           <li className="nav-item position-relative me-2">
             <Link className="nav-link bounce-animation" to="Cart">

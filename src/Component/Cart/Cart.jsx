@@ -13,7 +13,7 @@ export default function Cart() {
 
   async function getCart() {
     let response = await getLoggedUserCart();
-    if (response.data.status === 'success') {
+    if (response?.data?.status === 'success') {
       setIsLoading(true)
       setCartDetails(response.data.data);
       setIsLoading(false)
