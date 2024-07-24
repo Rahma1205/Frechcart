@@ -14,9 +14,7 @@ code {
 .curser-pointer{
   cursor: pointer;
 }
-.nav-rounded {
-  border-bottom-right-radius: 14px;
-}
+
 .product .btn{
   transition: transform 1s ,opacity 1s;
   -webkit-transition: transform 1s ,opacity 1s;
@@ -71,14 +69,19 @@ code {
   }
 }
 
-.nav-link.bounce-animation {
+.bounce-animation {
   display: inline-flex;
   align-items: center;
   transition: transform 0.2s ease;
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -ms-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
 }
 
-.nav-link.bounce-animation:hover {
+.bounce-animation{
   animation: bounce 1s;
+  -webkit-animation: bounce 1s;
 }
 
 .badge {
