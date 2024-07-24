@@ -24,6 +24,7 @@ export default function Cart() {
   async function deleteItem(productId) {
     let response = await removeItemFromCart(productId);
       setCartDetails(response.data.data);
+      setnumOfCartItems(response.data.numOfCartItems)
       toast.success('Product Successfully Removed');
    
     
