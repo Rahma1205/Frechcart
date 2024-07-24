@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 import Slider from "react-slick";
 import { CartContext } from '../../Context/CartContext';
+import { ani } from '../Footer/Footer';
 
 
 export default function ProductDetails() {
@@ -19,7 +20,7 @@ export default function ProductDetails() {
     if(response.data.status=='success'){
       setnumOfCartItems(response.data.numOfCartItems);
       toast.success('Product added successfully to cart');
-
+ani()
     }
     else{
       toast.error('Error adding product to cart');
@@ -85,7 +86,7 @@ export default function ProductDetails() {
               <i className="fas fa-star text-warning"></i> {productDetails.ratingsAverage}
             </span>
           </div>
-          <button onClick={() => addProduct(productDetails._id)} className="btn btn-success text-white w-100 mb-5">
+          <button onClick={() => addProduct(productDetails._id)} className="btn btn-success text-center text-white w-100 mb-5">
               + Add to cart
             </button>
         </div>

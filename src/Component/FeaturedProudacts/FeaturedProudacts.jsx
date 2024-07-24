@@ -65,7 +65,7 @@ export default function FeaturedProducts() {
                   </span>
                 </div>
               </Link>
-              <button onClick={() => addProduct(product._id)} className="btn btn-success text-white w-100 bounce-animation  ">
+              <button onClick={() => addProduct(product._id)} className="btn btn-success text-center text-white w-100  ">
                 + Add to cart
               </button>
             </div>
