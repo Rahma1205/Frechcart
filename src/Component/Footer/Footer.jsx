@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styles from './Footer.module.css';
 import { CartContext } from '../../Context/CartContext';
-import { Link, useLocation} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 export default function Footer() {
   let { numOfCartItems } = useContext(CartContext);
   const location = window.location.hash ; 
-
 
 
 

@@ -85,7 +85,7 @@ export default function ProductDetails() {
               <i className="fas fa-star text-warning"></i> {productDetails.ratingsAverage}
             </span>
           </div>
-          <button onClick={() => addProduct(productDetails._id)} className="btn btn-success text-white w-100">
+          <button onClick={() => addProduct(productDetails._id)} className="btn btn-success text-white w-100 mb-5">
               + Add to cart
             </button>
         </div>
