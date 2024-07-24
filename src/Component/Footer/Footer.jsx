@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import styles from './Footer.module.css';
 import { CartContext } from '../../Context/CartContext';
 import { Link, useLocation} from 'react-router-dom';
-import $ from 'jquery'
+
 
 export default function Footer() {
   let { numOfCartItems } = useContext(CartContext);
@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <>
       {location!=='#/Cart'&& numOfCartItems!==0? (
-        <div className='footer bg-dark text-white text-center py-1 position-fixed bottom-0 start-0 w-100'>
+        <div className='footer bg-dark text-white text-center py-2 position-fixed bottom-0 start-0 w-100'>
           <li className="nav-item position-relative me-2">
             <Link className="nav-link bounce-animation" to="Cart">
               <i className='fas fa-regular fa-shopping-cart fa-lg'></i>

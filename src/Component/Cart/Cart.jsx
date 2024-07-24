@@ -90,7 +90,7 @@ export default function Cart() {
         
       
       
-           <button className='btn  btn-success w-100'>
+           <button className='btn  btn-success w-100 mb-3'>
         <Link className='text-white text-decoration-none ' to={'/CheckOut'}>
           CheckOut
         </Link>
