@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import  { CartContext } from '../../Context/CartContext';
 import { Helmet } from 'react-helmet';
+import { ani } from '../Footer/Footer';
+
 export default function Product() {
  
   const { addToCart,setnumOfCartItems } = useContext(CartContext);
@@ -18,6 +20,7 @@ export default function Product() {
       if(response.data.status=='success'){
         setnumOfCartItems(response.data.numOfCartItems);
         toast.success('Product added successfully to cart');
+        ani()
 
       }
       else{
@@ -66,7 +69,7 @@ export default function Product() {
                 </span>
               </div>
             </Link>
-            <button onClick={() => addProduct(product._id)} className="btn btn-success text-white w-100">
+            <button onClick={() => addProduct(product._id)} className="btn btn-success text-center text-white w-100">
               + Add to cart
             </button>
           </div>
