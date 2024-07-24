@@ -8,7 +8,7 @@ import  { CartContext } from '../../Context/CartContext';
 export default function FeaturedProducts() {
   const { addToCart,setnumOfCartItems } = useContext(CartContext);
   const [products, setProducts] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   async function addProduct(productId) {
     
       let response = await addToCart(productId);
@@ -26,8 +26,10 @@ export default function FeaturedProducts() {
 
   async function getProducts() {
     try {
+      setIsLoading(true)
       const { data } = await axios.get('https://ecommerce.routemisr.com/api/v1/products');
       setProducts(data.data);
+      setIsLoading(false)
     } catch (error) {
       console.error('Failed to fetch products', error);
       toast.error('Failed to fetch products');
@@ -37,10 +39,13 @@ export default function FeaturedProducts() {
   useEffect(() => {
     getProducts();
   }, []);
+  if (isLoading == true) {
+    return <div className=' d-flex justify-content-center align-items-center my-5 icon-container'><i class="fa-solid fa-spinner fa-spin fa-2xl "></i></div>; // Display a loading message while data is being fetched
+  }
 
   return (
-    <>
-      <div className="row">
+    <> <div className="mx-4">
+       <div className="row">
       {products.map((product) => (
         <div key={product._id} className={`Proudact-hover col-md-2 ${styles.product}`}>
           <div className="product px-2 py-4 cursor-pointer">
@@ -62,6 +67,8 @@ export default function FeaturedProducts() {
         </div>
       ))}
     </div>
+    </div>
+     
     </>
   
   );

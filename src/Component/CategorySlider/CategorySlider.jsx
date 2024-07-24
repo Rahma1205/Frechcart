@@ -34,7 +34,7 @@ export default function CategorySlider() {
     {categories.map((cat) => (
       <div key={cat._id}  >
         <img src={cat.image} className='w-100 catHeight ' alt={cat.name} />
-        <h2 className='h6 pt-2 text-black-50'>{cat.name}</h2>
+        <h2 className='h6 pt-2 text-black-50 '>{cat.name}</h2>
       </div>
     ))}
   </Slider ></div>

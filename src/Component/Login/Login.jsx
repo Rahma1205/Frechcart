@@ -89,13 +89,13 @@ export default function Login({ saveUserData }) {
             Login
           </button>
         )}
-        <div >
+        <div className='d-flex justify-content-start align-items-start  '>
         
           <Link className='px-2 link-success text-decoration-none 'to='/ForgetPassword'>Forgotten Password?</Link>
         </div>
         <div className='d-flex justify-content-center align-items-center  '>
-          <h5>Don't have an account?</h5>
-          <Link className='px-2 link-success text-decoration-none 'to='/Register'>Register Now</Link>
+          <h6>Don't have an account?</h6>
+          <Link className='px-2 mb-2 link-success text-decoration-none 'to='/Register'>Register Now</Link>
         </div>
       </form>
     </div>

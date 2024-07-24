@@ -9,7 +9,7 @@ import { CartContext } from '../../Context/CartContext';
 export default function ProductDetails() {
   const { id } = useParams();
   const [productDetails, setProductDetails] = useState(null); // Use an object for single product details
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [isLoading, setLoading] = useState(false); // Add loading state
   const { addToCart,setnumOfCartItems } = useContext(CartContext);
 
   async function addProduct(productId) {
@@ -29,8 +29,10 @@ export default function ProductDetails() {
 
   const getProductDetails = async () => {
     try {
+      setLoading(true)
       const { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`);
       setProductDetails(data.data);
+      setLoading(false)
     } catch (error) {
       console.error('Failed to fetch product', error);
       toast.error('Failed to fetch product');
@@ -49,11 +51,12 @@ export default function ProductDetails() {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+ 
   };
 
-  if (loading) {
-    return <div className=' d-flex justify-content-center align-items-center icon-container'><i class="fa-solid fa-spinner fa-spin fa-2xl "></i></div>; // Display a loading message while data is being fetched
+  if (isLoading == true) {
+    return <div className=' d-flex justify-content-center align-items-center my-5 icon-container'><i class="fa-solid fa-spinner fa-spin fa-2xl "></i></div>; // Display a loading message while data is being fetched
   }
 
   if (!productDetails) {
@@ -61,9 +64,9 @@ export default function ProductDetails() {
   }
 
   return (
-    <div className="container">
+    <div className="mx-4">
       <div className="row align-items-center">
-        <div className="col-md-4">
+        <div className="col-md-4 py-4">
           <Slider {...settings}>
             {/* Assuming productDetails.images is an array of image URLs */}
             {productDetails.images?.map((image, index) => (
@@ -73,7 +76,7 @@ export default function ProductDetails() {
             ))}
           </Slider>
         </div>
-        <div className="col-md-8">
+        <div className="col-md-8 ">
           <h1>{productDetails.title}</h1>
           <p>{productDetails.description}</p>
           <div className="d-flex justify-content-between">

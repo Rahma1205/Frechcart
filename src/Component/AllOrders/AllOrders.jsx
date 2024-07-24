@@ -25,8 +25,8 @@ export default function AllOrders() {
 
   if (!orders) {
     return (
-      <p className="py-5 d-flex justify-content-center">
-        <i className="fas fa-spinner fa-spin"></i>
+      <p className="d-flex justify-content-center align-items-center my-5 icon-container">
+        <i className="fa-solid fa-spinner fa-spin fa-2xl"></i>
       </p>
     );
   }
@@ -43,8 +43,8 @@ export default function AllOrders() {
       <Helmet>
         <title>Orders</title>
       </Helmet>
-      <h3>{orders.id}</h3>
-      <div className="row">
+
+      <div className="mx-4">  <div className="row">
         {orders.map((order) => (
           <div key={order.id} className={`order border border-gray-300 rounded-md p-4 ${styles.order}`}>
             <div className="flex justify-between items-center mb-4">
@@ -88,7 +88,8 @@ export default function AllOrders() {
             </div>
           </div>
         ))}
-      </div>
+      </div></div>
+    
     </>
   );
 }

@@ -3,7 +3,7 @@ import styles from './Register.module.css';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 export default function Register() {
@@ -162,6 +162,10 @@ export default function Register() {
             Register
           </button>
         )}
+        <div className='d-flex justify-content-center align-items-center  '>
+          <h6>Alread have an accont?</h6>
+          <Link className='px-2 link-success mb-2 text-decoration-none 'to='/'>Login </Link>
+        </div>
       </form>
     </div>
     </>

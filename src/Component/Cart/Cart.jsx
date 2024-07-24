@@ -6,28 +6,27 @@ import {CartContext} from '../../Context/CartContext'
 import { Helmet } from 'react-helmet';
 
 export default function Cart() {
-  let [cartDetails, setCartDetails, ] = useState(null);
+  let [cartDetails, setCartDetails, ] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   let { getLoggedUserCart, removeItemFromCart, updateProductCount,setnumOfCartItems } = useContext(CartContext);
 
   async function getCart() {
     let response = await getLoggedUserCart();
     if (response.data.status === 'success') {
-  
+      setIsLoading(true)
       setCartDetails(response.data.data);
+      setIsLoading(false)
     }
 
-  }
+  } 
 
   async function deleteItem(productId) {
     let response = await removeItemFromCart(productId);
-    if (response.data.status === 'success') {
-      setCartDetails(response);
-      setnumOfCartItems(response.data.numOfCartItems);
+      setCartDetails(response.data.data);
       toast.success('Product Successfully Removed');
-    }
-    else{
-      toast.error('Cannot remove product ');
-    }
+   
+    
   }
 
   async function updateCartQuantity(productId, count) {
@@ -42,25 +41,24 @@ export default function Cart() {
   useEffect(() => {
     getCart();
   }, []);
-
+ 
+  if (isLoading == true) {
+    return <div className=' d-flex justify-content-center align-items-center my-5 icon-container '><i class="fa-solid fa-spinner fa-spin fa-2xl "></i></div>; // Display a loading message while data is being fetched
+  }
   return (
     <>
     <Helmet>
       <title>Cart</title>
     </Helmet>
-      {cartDetails!==null ? (
+    <div className="mx-4"> 
+      <div className="row">
+   
         <div>
-          <div className="p-4 bg-light my-5">
+          <div className="p-3 bg-light mt-5 mb-2">
           <h3>Shop Cart</h3>
           <h6 className='text-success'>Total Cart Price: {cartDetails.totalCartPrice}EGP</h6>
-        </div>
-         
-        </div>
-        
-        
-      ) : null}
-      {cartDetails && cartDetails.products && cartDetails.products.map((product) => (
-        <div key={product.product.id} className='row border-bottom py-2 align-items-center'>
+          {cartDetails && cartDetails.products && cartDetails.products.map((product) => (
+        <div key={product.product.id} className='row border-bottom py-2 align-items-center '>
           <div className="col-md-1">
             <img src={product.product.imageCover} className='w-100' alt={product.product.title} />
           </div>
@@ -84,11 +82,22 @@ export default function Cart() {
     
         
       ))}
+
+        </div>
+         
+        </div>
+        
+        
+      
+      
            <button className='btn  btn-success w-100'>
         <Link className='text-white text-decoration-none ' to={'/CheckOut'}>
           CheckOut
         </Link>
       </button>
+      </div>
+      </div>
+    
     </>
   );
 }
